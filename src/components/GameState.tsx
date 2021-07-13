@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 export type Value = "X" | "O" | null;
 
 export type BoardState = Value[];
@@ -21,7 +22,7 @@ function calculateWinner(boardsState: BoardState) {
     if (
       boardsState[a] &&
       boardsState[a] === boardsState[b] &&
-      boardsState[a] == boardsState[c]
+      boardsState[a] === boardsState[c]
     ) {
       return boardsState[a];
     }
@@ -57,19 +58,11 @@ export function useGameState() {
     });
   }
 
-  function jumpTo(step: number) {
-    setGameState({
-      history: gameState.history,
-      step,
-    });
-  }
-
   return {
     gameState,
     current,
     xIsNext,
     winner,
     handleClick,
-    jumpTo,
   };
 }
