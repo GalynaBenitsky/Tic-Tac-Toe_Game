@@ -1,8 +1,13 @@
 import React from "react";
 
 import { StyledSquare } from "./common";
+import { Value } from "./GameState";
 
-function Squre() {
-  return <StyledSquare>X</StyledSquare>;
+export type SquareProps = {
+  value: Value;
+  onClick: () => void;
+};
+
+export function Square(props: SquareProps) {
+  return <StyledSquare onClick={props.onClick}>{props.value}</StyledSquare>;
 }
-export default Squre;
